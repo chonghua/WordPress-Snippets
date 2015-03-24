@@ -1,0 +1,21 @@
+// Remove Metaboxes from Custom Post Type Edit Screens
+if (is_admin()) :
+function remove_post_meta_boxes() {
+if(!current_user_can('administrator')) {
+remove_meta_box('tagsdiv-post_tag', 'custom_post_type', 'normal');
+remove_meta_box('categorydiv', 'custom_post_type', 'normal');
+remove_meta_box('authordiv', 'custom_post_type', 'normal');
+remove_meta_box('postexcerpt', 'custom_post_type', 'normal');
+remove_meta_box('trackbacksdiv', 'custom_post_type', 'normal');
+remove_meta_box('commentstatusdiv', 'custom_post_type', 'normal');
+remove_meta_box('postcustom', 'custom_post_type', 'normal');
+remove_meta_box('commentstatusdiv', 'custom_post_type', 'normal');
+remove_meta_box('commentsdiv', 'custom_post_type', 'normal');
+remove_meta_box('revisionsdiv', 'custom_post_type', 'normal');
+remove_meta_box('authordiv', 'custom_post_type', 'normal');
+remove_meta_box('pageparentdiv', 'custom_post_type', 'normal');
+remove_meta_box('slugdiv', 'custom_post_type', 'normal');
+}
+}
+add_action('admin_menu', 'remove_post_meta_boxes');
+endif;
