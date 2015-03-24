@@ -1,0 +1,5 @@
+add_filter( 'comment_form_defaults', 'my_comment_form_defaults' );
+function my_comment_form_defaults($defaults){
+    $defaults['comment_notes_after']='';
+    return $defaults;
+}
