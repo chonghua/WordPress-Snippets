@@ -1,0 +1,7 @@
+// Remove Featured Image Metabox from Custom Post Type Edit Screens
+function remove_image_box() {
+if ($current_user->user_level < 10){
+remove_meta_box('postimagediv','custom_post_type','side');
+}
+}
+add_action('do_meta_boxes', 'remove_image_box');
