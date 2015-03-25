@@ -1,0 +1,7 @@
+function login_with_email_address($username) {
+    $user = get_user_by_email($username);
+    if(!empty($user->user_login))
+        $username = $user->user_login;
+    return $username;
+}
+add_action('wp_authenticate','login_with_email_address'); 
