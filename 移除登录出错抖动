@@ -1,0 +1,4 @@
+function wps_login_error() {
+        remove_action('login_head', 'wp_shake_js', 12);
+}
+add_action('login_head', 'wps_login_error');
