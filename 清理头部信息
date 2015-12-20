@@ -1,0 +1,33 @@
+// Cleaning up the Wordpress Head
+
+function wp_bootstrap_head_cleanup() {
+
+	// remove header links
+
+  remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);              // 短链接
+
+	remove_action( 'wp_head', 'feed_links_extra', 3 );                    // 分类 Feeds
+
+	remove_action( 'wp_head', 'feed_links', 2 );                          // 文章和评论 Feeds
+
+	remove_action( 'wp_head', 'rsd_link' );                               // 编辑地址
+
+	remove_action( 'wp_head', 'wlwmanifest_link' );                       // Windows Live Writer支持
+
+	remove_action( 'wp_head', 'index_rel_link' );                         // index link
+
+	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );            // previous link
+
+	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );             // start link
+
+	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 ); // Links for Adjacent Posts
+
+	remove_action( 'wp_head', 'wp_generator' );                           // WP 版本
+	
+	remove_filter('the_content', 'wptexturize');                          //禁用半角符号自动转换为全角
+
+}
+
+	// launching operation cleanup
+
+	add_action('init', 'wp_bootstrap_head_cleanup');
