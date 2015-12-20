@@ -1,0 +1,6 @@
+//移除js和css版本号
+add_filter('script_loader_src',	'wpjam_loader_src',10,2);
+add_filter('style_loader_src',	'wpjam_loader_src',10,2);
+function wpjam_loader_src($src, $handle){
+	return remove_query_arg(array('ver'), $src);
+}
