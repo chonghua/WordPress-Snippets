@@ -66,6 +66,72 @@ define('NONCE_SALT',       'put your unique phrase here');
  */
 $table_prefix  = 'wp_';
 
+/**自定义 'wp_user' 和 'wp_usermeta' 表.*/
+define( 'CUSTOM_USER_TABLE',      $table_prefix . 'user' );
+define( 'CUSTOM_USER_META_TABLE', $table_prefix . 'usermeta' );
+
+/* 登录和管理员使用SSL */
+define( 'FORCE_SSL_LOGIN', true );
+define( 'FORCE_SSL_ADMIN', true );
+
+/* 自定义 WordPress 站点地址和特殊地址、目录. */
+define( 'WP_SITEURL',     'http://hechonghua.com/' );      /* 访问地址. */
+define( 'WP_HOME',        'http://hechonghua.com/wordpress' ); /* 实际地址. */
+define( 'WP_CONTENT_URL', 'wp-content' ); /* 更改wp-content 目录. */
+define( 'UPLOADS',        'wp-content/uploads' );   /* 更改上传目录. */
+define( 'WP_PLUGIN_URL',  'wp-content/plugins' );   /* 更改插件目录. */
+define( 'COOKIE_DOMAIN',  'cookie.hechonghua.com' ); /* 自定义另外cookie域名. */
+
+/* 自动保存周期. */
+define( 'AUTOSAVE_INTERVAL', '20' ); /* 周期为秒. */
+
+/* 修订版本设置. */
+define( 'WP_POST_REVISIONS', '10' );  /* 值可以为 “false” 或者你指定的版本数. */
+
+/* 媒体回收站自动清理. */
+define( 'MEDIA_TRASH', true );   /* 设置为 “true” 时可以设置下面的周期. */
+define( 'EMPTY_TRASH_DAYS', '20' );  /* 值是指定清理周期天数. */
+
+/* 多站点启用. */
+define( 'WP_ALLOW_MULTISITE', true );
+
+/* WordPress 调试模式. */
+define( 'WP_DEBUG',         true ); /* 启用调试. */
+define( 'WP_DEBUG_LOG',     true ); /* 启用调试日志. */
+define( 'WP_DEBUG_DISPLAY', true ); /* 显示错误和警告. */
+define( 'SCRIPT_DEBUG',     true ); /* 显示脚本和css错误. */
+define( 'SAVEQUERIES',      true ); /* 输出数据库查询. */
+
+/* PHP 内存设置 */
+define( 'WP_MEMORY_LIMIT', '50' );  /* 最小限制，默认30，多占点64. */
+define( 'WP_MAX_MEMORY_LIMIT', '300' ); /* 最大限制，默认256. */
+
+/* WordPress 缓存 */
+define( 'WP_CACHE', true );
+
+
+/* 压缩 */
+define( 'COMPRESS_CSS',        true );  /* 压缩css */
+define( 'COMPRESS_SCRIPTS',    true );  /* 压缩 js*/
+define( 'CONCATENATE_SCRIPTS', true );  /* 连接css 和 js*/
+define( 'ENFORCE_GZIP',        true );  /* gzip启用 */
+
+/* FTP设置 */
+define( 'FTP_USER', '1' ); /* 用户名 */
+define( 'FTP_PASS', '1' ); /* 密码*/
+define( 'FTP_HOST', '1' ); /* 主机 */
+define( 'FTP_SSL', true ); /* 是否使用ssl */
+
+/* 定时任务 */
+define( 'DISABLE_WP_CRON',      'true' ); /* 禁用任务 */
+define( 'ALTERNATE_WP_CRON',    'true' );  /* 备用计划 */
+define( 'WP_CRON_LOCK_TIMEOUT', 200 );  /* 超时，单位是秒 */
+
+/* 更新设置 */
+define( 'WP_AUTO_UPDATE_CORE', false ); /* 禁用核心更新 */
+define( 'DISALLOW_FILE_MODS', true );  /* 禁用修改文件 */
+define( 'DISALLOW_FILE_EDIT', true );  /* 禁用编辑插件和主题 */
+
 /**
  * 开发者专用：WordPress调试模式。
  *
@@ -76,8 +142,12 @@ $table_prefix  = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', false);
-
+define('WP_DEBUG', false); 
+define( 'WP_DEBUG',         true ); /* 启用调试，默认为 “false” . */
+define( 'WP_DEBUG_LOG',     true ); /* 启用调试日志. */
+define( 'WP_DEBUG_DISPLAY', true ); /* 显示错误和警告. */
+define( 'SCRIPT_DEBUG',     true ); /* 显示脚本和css错误. */
+define( 'SAVEQUERIES',      true ); /* 输出数据库查询. */
 /**
  * zh_CN本地化设置：启用ICP备案号显示
  *
