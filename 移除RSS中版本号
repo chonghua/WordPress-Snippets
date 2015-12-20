@@ -1,0 +1,5 @@
+	// remove WP version from RSS
+
+	function wp_bootstrap_rss_version() { return ''; }
+
+	add_filter('the_generator', 'wp_bootstrap_rss_version');
