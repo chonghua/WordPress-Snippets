@@ -1,0 +1,8 @@
+function email_members($post_ID)  {
+    global $wpdb;
+    $usersarray = $wpdb->get_results("SELECT user_email FROM $wpdb->users;");    
+    $users = implode(",", $usersarray);
+    mail($users, "New WordPress recipe online!", 'A new recipe have been published on http://www.wprecipes.com');
+    return $post_ID;
+}
+add_action('publish_post', 'email_members');
