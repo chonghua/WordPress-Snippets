@@ -8,8 +8,10 @@ http://www.example.com/wp-json/
 add_filter('rest_enabled', '_return_false');
 add_filter('rest_jsonp_enabled', '_return_false');
 　　方法二：彻底关闭
-
+remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
 remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+
+
 remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
 
 禁用 Embeds - 官方插件 Disable Embeds
