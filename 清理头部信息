@@ -4,8 +4,9 @@ function wp_bootstrap_head_cleanup() {
 
 	// remove header links
 
-  remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);              // 短链接
-
+        remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);              // 短链接
+        remove_action('template_redirect','wp_shortlink_header',11,0);
+        
 	remove_action( 'wp_head', 'feed_links_extra', 3 );                    // 分类 Feeds
 
 	remove_action( 'wp_head', 'feed_links', 2 );                          // 文章和评论 Feeds
