@@ -1,0 +1,21 @@
+function prefix_remove_site_health( $tests ) {
+	unset( $tests['direct']['php_version'] );
+	unset( $tests['direct']['wordpress_version'] );
+	unset( $tests['direct']['plugin_version'] );
+	unset( $tests['direct']['theme_version'] );
+	unset( $tests['direct']['sql_server'] );
+	unset( $tests['direct']['php_extensions'] );
+	unset( $tests['direct']['utf8mb4_support'] );
+	unset( $tests['direct']['https_status'] );
+	unset( $tests['direct']['ssl_support'] );
+	unset( $tests['direct']['scheduled_events'] );
+	unset( $tests['direct']['http_requests'] );
+	unset( $tests['direct']['is_in_debug_mode'] );
+	unset( $tests['direct']['dotorg_communication'] );
+	unset( $tests['direct']['background_updates'] );
+	unset( $tests['direct']['loopback_requests'] );
+	unset( $tests['direct']['rest_availability'] );
+	return $tests;
+}
+ 
+add_filter( 'site_status_tests', 'prefix_remove_site_health' );
