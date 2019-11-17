@@ -1,0 +1,11 @@
+/** 
+ * Disable website field from comment form
+ */
+
+function disable_website_field( $field ) { 
+    if( isset($field['url']) ) {
+        unset( $field['url'] );
+    }
+    return $field;
+}
+add_filter('comment_form_default_fields', 'disable_website_field');
