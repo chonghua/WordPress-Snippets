@@ -1,0 +1,7 @@
+/**
+ * Change Media Gallery URL
+ */
+ 
+if ( empty( get_option( 'upload_url_path' ) ) ) {
+    update_option( 'upload_url_path', 'http://assets.website.com/wp-content/uploads' );
+}
