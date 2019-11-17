@@ -1,0 +1,28 @@
+/* ----------------------------------------------------------------------------
+ * Related Posts Function, matches posts by tags - call using simple_related_posts();
+ * ------------------------------------------------------------------------- */
+function simple_related_posts() {
+	global $post;
+	$tags = wp_get_post_tags( $post->ID );
+	if($tags) {
+		foreach( $tags as $tag ) {
+			$tag_arr .= $tag->slug . ',';
+	}
+		$args = array(
+			'post_type' => array ( 'post', 'news' ), /* Add post types of your choice */
+			'tag' => $tag_arr,
+			'numberposts' => 3, /* You can change this to show more */
+			'post__not_in' => array( $post->ID )
+		);
+
+		$related_posts = get_posts( $args );
+		if($related_posts) {
+			echo '<div class="related-posts">';
+			foreach ( $related_posts as $post ) : setup_postdata( $post );
+				echo '<p><a href="' . get_permalink() . '">' . get_the_title() . ' ></a></p>';
+			endforeach;
+			echo '</div>';
+		}
+	}
+	wp_reset_postdata();
+}
