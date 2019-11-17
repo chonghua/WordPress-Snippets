@@ -1,0 +1,18 @@
+/**
+ * Modify admin footer text
+ */
+ 
+function modify_footer() {
+    echo 'Created by <a href="mailto:you@example.com">you</a>.';
+}
+add_filter( 'admin_footer_text', 'modify_footer' );
+
+
+
+// Custom Backend Footer
+function wp_bootstrap_custom_admin_footer() {
+	echo '<span id="footer-thankyou">Developed by <a href="http://yoursite.com" target="_blank">Your Site Name</a></span>. Built using <a href="http://themble.com/bones" target="_blank">Bones</a>.';
+}
+
+// adding it to the admin area
+add_filter('admin_footer_text', 'wp_bootstrap_custom_admin_footer');
