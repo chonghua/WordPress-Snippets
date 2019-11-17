@@ -5,3 +5,13 @@
 if ( empty( get_option( 'upload_url_path' ) ) ) {
     update_option( 'upload_url_path', 'http://assets.website.com/wp-content/uploads' );
 }
+
+
+
+/**
+ * Change Media Gallery URL稍微好点的版本
+ */
+ 
+add_filter( 'pre_option_upload_url_path', function() {
+    return 'http://assets.website.com/wp-content/uploads';
+});
