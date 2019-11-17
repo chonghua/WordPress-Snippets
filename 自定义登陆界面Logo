@@ -16,3 +16,23 @@ function custom_login_logo() {
     ';
 }
 add_action( 'login_head', 'custom_login_logo' );
+
+
+/************* 自定义整个登陆页 *****************/
+
+// calling your own login css so you can style it 
+function wp_bootstrap_login_css() {
+	/* i couldn't get wp_enqueue_style to work :( */
+	echo '<link rel="stylesheet" href="' . get_stylesheet_directory_uri() . '/library/css/login.css">';
+}
+
+// changing the logo link from wordpress.org to your site 
+function wp_bootstrap_login_url() { return get_bloginfo('url', 'raw'); }
+
+// changing the alt text on the logo to show your site name 
+function wp_bootstrap_login_title() { return get_option('blogname'); }
+
+// calling it only on the login page
+add_action('login_head', 'wp_bootstrap_login_css');
+add_filter('login_headerurl', 'wp_bootstrap_login_url');
+add_filter('login_headertitle', 'wp_bootstrap_login_title');
