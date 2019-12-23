@@ -1,0 +1,8 @@
+/* highlight post author comments */
+.commentlist .bypostauthor, .commentlist li ul.children li.bypostauthor {
+    background: #FFC;
+    color: #C30;
+}
+.commentlist .bypostauthor a, .commentlist li ul.children li.bypostauthor a {
+    color: #C30;
+}

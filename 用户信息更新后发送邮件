@@ -1,0 +1,18 @@
+// send email notification to user on profile updates
+function wcs_user_profile_update_notification( $user_id ) {
+    $site_url = get_bloginfo( 'wpurl' );
+    $site_title = get_bloginfo( 'name' );
+    $user_info = get_userdata( $user_id );
+    $to = $user_info->user_email;
+    $to_name = $user_info->display_name;
+    $subject = "User Profile Updated: " . $site_url;
+
+    // message body
+    $message = "Hello " . $to_name . ",\n\n";
+    $message .= "Your profile has been updated!\n\n";
+    $message .= $site_title . "\n";
+    $message .= $site_url;
+
+    wp_mail( $to, $subject, $message );
+}
+add_action( 'profile_update', 'wcs_user_profile_update_notification', 10, 2);

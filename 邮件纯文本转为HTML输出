@@ -1,0 +1,5 @@
+// change WordPress email content type to HTML
+function wpcs_set_email_content_type() {
+    return 'text/html';
+}
+add_filter( 'wp_mail_content_type', 'wpcs_set_email_content_type' );

@@ -1,0 +1,15 @@
+<?php
+// display most recent comments in wordpress
+$args = array (
+    'status' => 'approve',
+    'number' => '5'
+);
+$comments = get_comments( $args );
+if ( !empty( $comments ) ) :
+    echo '<ul>';
+    foreach( $comments as $comment ) :
+        echo '<li><a href="' . get_permalink( $comment->comment_post_ID ) . '#comment-' . $comment->comment_ID . '">' . $comment->comment_author . ' on ' . get_the_title( $comment->comment_post_ID ) . '</a></li>';
+    endforeach;
+    echo '</ul>';
+endif;
+?>

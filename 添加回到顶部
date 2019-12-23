@@ -1,0 +1,34 @@
+// add back to top button in wordpress footer
+function wcs_add_back_to_top() {
+    echo '<a id="toTop" href="#">Back to Top &uarr;</a>';
+}
+add_action( 'wp_footer', 'wcs_add_back_to_top' );
+
+//添加css样式
+/* css styles for back to top button */
+#toTop {
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #FFF;
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+//添加脚本
+jQuery(document).ready(function($) {
+    $(window).scroll(function(){
+        if ( $(this).scrollTop() > 100 ) {
+            $('#toTop').fadeIn();
+        } else {
+            $('#toTop').fadeOut();
+        }
+    });
+    $('#toTop').click(function(){
+        $('html, body').animate( {scrollTop : 0}, 800 );
+        return false;
+    });
+});

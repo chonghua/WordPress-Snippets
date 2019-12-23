@@ -1,0 +1,8 @@
+// Allow users to login with email address
+function wpcs_login_email_address( &$username, &$password ) {
+    $user = get_user_by( 'email', $username );
+    if( !empty( $user->user_login ) ) {
+        $username = $user->user_login;
+    }
+}
+add_action( 'wp_authenticate', 'wpcs_login_email_address' );

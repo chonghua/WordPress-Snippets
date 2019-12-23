@@ -1,0 +1,11 @@
+// change default from email address in wordpress
+function wcs_change_default_email_address( $old ) {
+    $email = get_option( 'admin_email' );
+    return $email;
+}
+function wcs_change_default_email_name( $old ) {
+    $site_name = get_option( 'blogname');
+    return $site_name;
+}
+add_filter( 'wp_mail_from', 'wcs_change_default_email_address' );
+add_filter( 'wp_mail_from_name', 'wcs_change_default_email_name' );

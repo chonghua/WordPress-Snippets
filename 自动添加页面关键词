@@ -1,0 +1,12 @@
+// add meta description tag without plugin in wordpress
+function wcs_add_meta_description_tag() {
+    global $post;
+    if ( is_single() ) {
+        $meta = strip_tags( $post->post_content );
+        $meta = strip_shortcodes( $post->post_content );
+        $meta = str_replace( array("\n", "\r", "\t"), ' ', $meta );
+        $meta = mb_substr( $meta, 0, 125, 'utf8' );
+        echo '<meta name="description" content="' . $meta . '" />' . "\n";
+    }
+}
+add_action( 'wp_head', 'wcs_add_meta_description_tag' , 2 );
